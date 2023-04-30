@@ -1,0 +1,18 @@
+version: "3.3"
+services:
+  app:
+    container_name: gpt4-pdf
+    image: gpt4-pdf
+    restart: always
+    build:
+      context: .
+    volumes: 
+      - ./docs:/app/docs
+    ports:
+      - 172.17.0.1:3750:3000
+    environment:
+      DOMAIN: https://gpt4-pdf-u3.vm.elestio.app
+    env_file:
+      - .env
+
+
